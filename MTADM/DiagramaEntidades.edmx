@@ -1,0 +1,836 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DiagramaEntidades.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DiagramaEntidadesStoreContainer">
+    <EntitySet Name="Objetos" EntityType="DiagramaEntidades.Store.Objetos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Entidades" EntityType="DiagramaEntidades.Store.Entidades" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Racas" EntityType="DiagramaEntidades.Store.Racas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Areas" EntityType="DiagramaEntidades.Store.Areas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ModelosObjeto" EntityType="DiagramaEntidades.Store.ModelosObjeto" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ModeloAreaSet" EntityType="DiagramaEntidades.Store.ModeloAreaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Entidades_Monstro" EntityType="DiagramaEntidades.Store.Entidades_Monstro" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Entidades_Personagem" EntityType="DiagramaEntidades.Store.Entidades_Personagem" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Entidades_ModeloMonstro" EntityType="DiagramaEntidades.Store.Entidades_ModeloMonstro" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Objetos_Arma" EntityType="DiagramaEntidades.Store.Objetos_Arma" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ModelosObjeto_ModeloArma" EntityType="DiagramaEntidades.Store.ModelosObjeto_ModeloArma" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ObjetoArea" Association="DiagramaEntidades.Store.ObjetoArea">
+      <End Role="Objeto" EntitySet="Objetos" />
+      <End Role="Area" EntitySet="Areas" />
+    </AssociationSet>
+    <AssociationSet Name="AreaMonstro" Association="DiagramaEntidades.Store.AreaMonstro">
+      <End Role="Area" EntitySet="Areas" />
+      <End Role="Monstro" EntitySet="Entidades_Monstro" />
+    </AssociationSet>
+    <AssociationSet Name="AreaPersonagem" Association="DiagramaEntidades.Store.AreaPersonagem">
+      <End Role="Area" EntitySet="Areas" />
+      <End Role="Personagem" EntitySet="Entidades_Personagem" />
+    </AssociationSet>
+    <AssociationSet Name="ModeloMonstroMonstro" Association="DiagramaEntidades.Store.ModeloMonstroMonstro">
+      <End Role="ModeloMonstro" EntitySet="Entidades_ModeloMonstro" />
+      <End Role="Monstro" EntitySet="Entidades_Monstro" />
+    </AssociationSet>
+    <AssociationSet Name="MonstroArma" Association="DiagramaEntidades.Store.MonstroArma">
+      <End Role="Monstro" EntitySet="Entidades_Monstro" />
+      <End Role="Arma" EntitySet="Objetos_Arma" />
+    </AssociationSet>
+    <AssociationSet Name="RacaEntidade" Association="DiagramaEntidades.Store.RacaEntidade">
+      <End Role="Raca" EntitySet="Racas" />
+      <End Role="Entidade" EntitySet="Entidades" />
+    </AssociationSet>
+    <AssociationSet Name="PersonagemArmaPrincipal" Association="DiagramaEntidades.Store.PersonagemArmaPrincipal">
+      <End Role="Personagem" EntitySet="Entidades_Personagem" />
+      <End Role="Arma" EntitySet="Objetos_Arma" />
+    </AssociationSet>
+    <AssociationSet Name="PersonagemArmaSecundaria" Association="DiagramaEntidades.Store.PersonagemArma">
+      <End Role="Personagem" EntitySet="Entidades_Personagem" />
+      <End Role="Arma" EntitySet="Objetos_Arma" />
+    </AssociationSet>
+    <AssociationSet Name="ModeloObjetoObjeto" Association="DiagramaEntidades.Store.ModeloObjetoObjeto">
+      <End Role="ModeloObjeto" EntitySet="ModelosObjeto" />
+      <End Role="Objeto" EntitySet="Objetos" />
+    </AssociationSet>
+    <AssociationSet Name="ModeloArmaArma" Association="DiagramaEntidades.Store.ModeloArmaArma">
+      <End Role="ModeloArma" EntitySet="ModelosObjeto_ModeloArma" />
+      <End Role="Arma" EntitySet="Objetos_Arma" />
+    </AssociationSet>
+    <AssociationSet Name="ModeloAreaArea" Association="DiagramaEntidades.Store.ModeloAreaArea">
+      <End Role="ModeloArea" EntitySet="ModeloAreaSet" />
+      <End Role="Area" EntitySet="Areas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Monstro_inherits_Entidade" Association="DiagramaEntidades.Store.FK_Monstro_inherits_Entidade">
+      <End Role="Entidade" EntitySet="Entidades" />
+      <End Role="Monstro" EntitySet="Entidades_Monstro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personagem_inherits_Entidade" Association="DiagramaEntidades.Store.FK_Personagem_inherits_Entidade">
+      <End Role="Entidade" EntitySet="Entidades" />
+      <End Role="Personagem" EntitySet="Entidades_Personagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ModeloMonstro_inherits_Entidade" Association="DiagramaEntidades.Store.FK_ModeloMonstro_inherits_Entidade">
+      <End Role="Entidade" EntitySet="Entidades" />
+      <End Role="ModeloMonstro" EntitySet="Entidades_ModeloMonstro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Arma_inherits_Objeto" Association="DiagramaEntidades.Store.FK_Arma_inherits_Objeto">
+      <End Role="Objeto" EntitySet="Objetos" />
+      <End Role="Arma" EntitySet="Objetos_Arma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ModeloArma_inherits_ModeloObjeto" Association="DiagramaEntidades.Store.FK_ModeloArma_inherits_ModeloObjeto">
+      <End Role="ModeloObjeto" EntitySet="ModelosObjeto" />
+      <End Role="ModeloArma" EntitySet="ModelosObjeto_ModeloArma" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Objetos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AreaId" Type="int" Nullable="false" />
+    <Property Name="ModeloObjetoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entidades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Vida" Type="int" Nullable="false" />
+    <Property Name="Mana" Type="int" Nullable="false" />
+    <Property Name="Estamina" Type="int" Nullable="false" />
+    <Property Name="Moral" Type="int" Nullable="false" />
+    <Property Name="Forca" Type="int" Nullable="false" />
+    <Property Name="Inteligencia" Type="int" Nullable="false" />
+    <Property Name="Destreza" Type="int" Nullable="false" />
+    <Property Name="Genero" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Imagem" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RacaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Racas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Mana" Type="int" Nullable="false" />
+    <Property Name="Estamina" Type="int" Nullable="false" />
+    <Property Name="Forca" Type="int" Nullable="false" />
+    <Property Name="Inteligencia" Type="int" Nullable="false" />
+    <Property Name="Destreza" Type="int" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Areas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ModeloAreaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ModelosObjeto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ModeloAreaSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entidades_Monstro">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Maldade" Type="int" Nullable="false" />
+    <Property Name="AreaId" Type="int" Nullable="false" />
+    <Property Name="ModeloMonstroId" Type="int" Nullable="false" />
+    <Property Name="ArmaId" Type="int" Nullable="true" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entidades_Personagem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Biografia" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AreaId" Type="int" Nullable="false" />
+    <Property Name="ArmaPrincipalId" Type="int" Nullable="true" />
+    <Property Name="ArmaId" Type="int" Nullable="true" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entidades_ModeloMonstro">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Maldade" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Objetos_Arma">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Ataque" Type="int" Nullable="false" />
+    <Property Name="Defesa" Type="int" Nullable="false" />
+    <Property Name="ModeloArmaId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ModelosObjeto_ModeloArma">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Defesa" Type="int" Nullable="false" />
+    <Property Name="Ataque" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ObjetoArea">
+    <End Role="Objeto" Type="DiagramaEntidades.Store.Objetos" Multiplicity="*" />
+    <End Role="Area" Type="DiagramaEntidades.Store.Areas" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Objeto">
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AreaMonstro">
+    <End Role="Area" Type="DiagramaEntidades.Store.Areas" Multiplicity="1" />
+    <End Role="Monstro" Type="DiagramaEntidades.Store.Entidades_Monstro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Monstro">
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AreaPersonagem">
+    <End Role="Area" Type="DiagramaEntidades.Store.Areas" Multiplicity="1" />
+    <End Role="Personagem" Type="DiagramaEntidades.Store.Entidades_Personagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Personagem">
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ModeloMonstroMonstro">
+    <End Role="ModeloMonstro" Type="DiagramaEntidades.Store.Entidades_ModeloMonstro" Multiplicity="1" />
+    <End Role="Monstro" Type="DiagramaEntidades.Store.Entidades_Monstro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModeloMonstro">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Monstro">
+        <PropertyRef Name="ModeloMonstroId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MonstroArma">
+    <End Role="Monstro" Type="DiagramaEntidades.Store.Entidades_Monstro" Multiplicity="*" />
+    <End Role="Arma" Type="DiagramaEntidades.Store.Objetos_Arma" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Arma">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Monstro">
+        <PropertyRef Name="ArmaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RacaEntidade">
+    <End Role="Raca" Type="DiagramaEntidades.Store.Racas" Multiplicity="1" />
+    <End Role="Entidade" Type="DiagramaEntidades.Store.Entidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Raca">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Entidade">
+        <PropertyRef Name="RacaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonagemArmaPrincipal">
+    <End Role="Personagem" Type="DiagramaEntidades.Store.Entidades_Personagem" Multiplicity="*" />
+    <End Role="Arma" Type="DiagramaEntidades.Store.Objetos_Arma" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Arma">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Personagem">
+        <PropertyRef Name="ArmaPrincipalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonagemArma">
+    <End Role="Personagem" Type="DiagramaEntidades.Store.Entidades_Personagem" Multiplicity="*" />
+    <End Role="Arma" Type="DiagramaEntidades.Store.Objetos_Arma" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Arma">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Personagem">
+        <PropertyRef Name="ArmaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ModeloObjetoObjeto">
+    <End Role="ModeloObjeto" Type="DiagramaEntidades.Store.ModelosObjeto" Multiplicity="1" />
+    <End Role="Objeto" Type="DiagramaEntidades.Store.Objetos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModeloObjeto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Objeto">
+        <PropertyRef Name="ModeloObjetoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ModeloArmaArma">
+    <End Role="ModeloArma" Type="DiagramaEntidades.Store.ModelosObjeto_ModeloArma" Multiplicity="1" />
+    <End Role="Arma" Type="DiagramaEntidades.Store.Objetos_Arma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModeloArma">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Arma">
+        <PropertyRef Name="ModeloArmaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ModeloAreaArea">
+    <End Role="ModeloArea" Type="DiagramaEntidades.Store.ModeloAreaSet" Multiplicity="1" />
+    <End Role="Area" Type="DiagramaEntidades.Store.Areas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModeloArea">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Area">
+        <PropertyRef Name="ModeloAreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Monstro_inherits_Entidade">
+    <End Role="Entidade" Type="DiagramaEntidades.Store.Entidades" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Monstro" Type="DiagramaEntidades.Store.Entidades_Monstro" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Entidade">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Monstro">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personagem_inherits_Entidade">
+    <End Role="Entidade" Type="DiagramaEntidades.Store.Entidades" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Personagem" Type="DiagramaEntidades.Store.Entidades_Personagem" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Entidade">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Personagem">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ModeloMonstro_inherits_Entidade">
+    <End Role="Entidade" Type="DiagramaEntidades.Store.Entidades" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ModeloMonstro" Type="DiagramaEntidades.Store.Entidades_ModeloMonstro" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Entidade">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModeloMonstro">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Arma_inherits_Objeto">
+    <End Role="Objeto" Type="DiagramaEntidades.Store.Objetos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Arma" Type="DiagramaEntidades.Store.Objetos_Arma" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Objeto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Arma">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ModeloArma_inherits_ModeloObjeto">
+    <End Role="ModeloObjeto" Type="DiagramaEntidades.Store.ModelosObjeto" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ModeloArma" Type="DiagramaEntidades.Store.ModelosObjeto_ModeloArma" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ModeloObjeto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModeloArma">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DiagramaEntidades" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="DiagramaEntidadesContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Objetos" EntityType="DiagramaEntidades.Objeto" />
+          <EntitySet Name="Entidades" EntityType="DiagramaEntidades.Entidade" />
+          <EntitySet Name="Racas" EntityType="DiagramaEntidades.Raca" />
+          <EntitySet Name="Areas" EntityType="DiagramaEntidades.Area" />
+          <AssociationSet Name="ObjetoArea" Association="DiagramaEntidades.ObjetoArea">
+            <End Role="Objeto" EntitySet="Objetos" />
+            <End Role="Area" EntitySet="Areas" />
+          </AssociationSet>
+          <AssociationSet Name="AreaMonstro" Association="DiagramaEntidades.AreaMonstro">
+            <End Role="Area" EntitySet="Areas" />
+            <End Role="Monstro" EntitySet="Entidades" />
+          </AssociationSet>
+          <AssociationSet Name="AreaPersonagem" Association="DiagramaEntidades.AreaPersonagem">
+            <End Role="Area" EntitySet="Areas" />
+            <End Role="Personagem" EntitySet="Entidades" />
+          </AssociationSet>
+          <AssociationSet Name="ModeloMonstroMonstro" Association="DiagramaEntidades.ModeloMonstroMonstro">
+            <End Role="ModeloMonstro" EntitySet="Entidades" />
+            <End Role="Monstro" EntitySet="Entidades" />
+          </AssociationSet>
+          <AssociationSet Name="MonstroArma" Association="DiagramaEntidades.MonstroArma">
+            <End Role="Monstro" EntitySet="Entidades" />
+            <End Role="Arma" EntitySet="Objetos" />
+          </AssociationSet>
+          <AssociationSet Name="RacaEntidade" Association="DiagramaEntidades.RacaEntidade">
+            <End Role="Raca" EntitySet="Racas" />
+            <End Role="Entidade" EntitySet="Entidades" />
+          </AssociationSet>
+          <AssociationSet Name="PersonagemArmaPrincipal" Association="DiagramaEntidades.PersonagemArmaPrincipal">
+            <End Role="Personagem" EntitySet="Entidades" />
+            <End Role="Arma" EntitySet="Objetos" />
+          </AssociationSet>
+          <AssociationSet Name="PersonagemArmaSecundaria" Association="DiagramaEntidades.PersonagemArma">
+            <End Role="Personagem" EntitySet="Entidades" />
+            <End Role="Arma" EntitySet="Objetos" />
+          </AssociationSet>
+          <EntitySet Name="ModelosObjeto" EntityType="DiagramaEntidades.ModeloObjeto" />
+          <AssociationSet Name="ModeloObjetoObjeto" Association="DiagramaEntidades.ModeloObjetoObjeto">
+            <End Role="ModeloObjeto" EntitySet="ModelosObjeto" />
+            <End Role="Objeto" EntitySet="Objetos" />
+          </AssociationSet>
+          <AssociationSet Name="ModeloArmaArma" Association="DiagramaEntidades.ModeloArmaArma">
+            <End Role="ModeloArma" EntitySet="ModelosObjeto" />
+            <End Role="Arma" EntitySet="Objetos" />
+          </AssociationSet>
+          <EntitySet Name="ModeloAreaSet" EntityType="DiagramaEntidades.ModeloArea" />
+          <AssociationSet Name="ModeloAreaArea" Association="DiagramaEntidades.ModeloAreaArea">
+            <End Role="ModeloArea" EntitySet="ModeloAreaSet" />
+            <End Role="Area" EntitySet="Areas" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Objeto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Descricao" Type="String" Nullable="false" />
+          <NavigationProperty Name="Area" Relationship="DiagramaEntidades.ObjetoArea" FromRole="Objeto" ToRole="Area" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ModeloObjeto" Relationship="DiagramaEntidades.ModeloObjetoObjeto" FromRole="Objeto" ToRole="ModeloObjeto" />
+          <Property Name="ModeloObjetoId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Arma" BaseType="DiagramaEntidades.Objeto" >
+          <Property Name="Ataque" Type="Int32" Nullable="false" />
+          <Property Name="Defesa" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Monstros" Relationship="DiagramaEntidades.MonstroArma" FromRole="Arma" ToRole="Monstro" />
+          <NavigationProperty Name="PersonagensAsPrincipal" Relationship="DiagramaEntidades.PersonagemArmaPrincipal" FromRole="Arma" ToRole="Personagem" />
+          <NavigationProperty Name="PersonagensAsSecundaria" Relationship="DiagramaEntidades.PersonagemArma" FromRole="Arma" ToRole="Personagem" />
+          <NavigationProperty Name="ModeloArma" Relationship="DiagramaEntidades.ModeloArmaArma" FromRole="Arma" ToRole="ModeloArma" />
+          <Property Name="ModeloArmaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Entidade">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Vida" Type="Int32" Nullable="false" />
+          <Property Name="Mana" Type="Int32" Nullable="false" />
+          <Property Name="Estamina" Type="Int32" Nullable="false" />
+          <Property Name="Moral" Type="Int32" Nullable="false" />
+          <Property Name="Forca" Type="Int32" Nullable="false" />
+          <Property Name="Inteligencia" Type="Int32" Nullable="false" />
+          <Property Name="Destreza" Type="Int32" Nullable="false" />
+          <Property Name="Genero" Type="String" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Descricao" Type="String" Nullable="false" />
+          <Property Name="Imagem" Type="String" Nullable="false" />
+          <NavigationProperty Name="Raca" Relationship="DiagramaEntidades.RacaEntidade" FromRole="Entidade" ToRole="Raca" />
+          <Property Name="RacaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Raca">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mana" Type="Int32" Nullable="false" />
+          <Property Name="Estamina" Type="Int32" Nullable="false" />
+          <Property Name="Forca" Type="Int32" Nullable="false" />
+          <Property Name="Inteligencia" Type="Int32" Nullable="false" />
+          <Property Name="Destreza" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Descricao" Type="String" Nullable="false" />
+          <NavigationProperty Name="Entidades" Relationship="DiagramaEntidades.RacaEntidade" FromRole="Raca" ToRole="Entidade" />
+        </EntityType>
+        <EntityType Name="Personagem" BaseType="DiagramaEntidades.Entidade" >
+          <Property Name="Biografia" Type="String" Nullable="false" />
+          <NavigationProperty Name="Area" Relationship="DiagramaEntidades.AreaPersonagem" FromRole="Personagem" ToRole="Area" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ArmaPrincipal" Relationship="DiagramaEntidades.PersonagemArmaPrincipal" FromRole="Personagem" ToRole="Arma" />
+          <Property Name="ArmaPrincipalId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="ArmaSecundaria" Relationship="DiagramaEntidades.PersonagemArma" FromRole="Personagem" ToRole="Arma" />
+          <Property Name="ArmaId" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="ModeloMonstro" BaseType="DiagramaEntidades.Entidade" >
+          <Property Name="Maldade" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Monstros" Relationship="DiagramaEntidades.ModeloMonstroMonstro" FromRole="ModeloMonstro" ToRole="Monstro" />
+        </EntityType>
+        <EntityType Name="Monstro" BaseType="DiagramaEntidades.Entidade" >
+          <Property Name="Maldade" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Area" Relationship="DiagramaEntidades.AreaMonstro" FromRole="Monstro" ToRole="Area" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Modelo" Relationship="DiagramaEntidades.ModeloMonstroMonstro" FromRole="Monstro" ToRole="ModeloMonstro" />
+          <Property Name="ModeloMonstroId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Arma" Relationship="DiagramaEntidades.MonstroArma" FromRole="Monstro" ToRole="Arma" />
+          <Property Name="ArmaId" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Descricao" Type="String" Nullable="false" />
+          <NavigationProperty Name="Objetos" Relationship="DiagramaEntidades.ObjetoArea" FromRole="Area" ToRole="Objeto" />
+          <NavigationProperty Name="Monstros" Relationship="DiagramaEntidades.AreaMonstro" FromRole="Area" ToRole="Monstro" />
+          <NavigationProperty Name="Personagens" Relationship="DiagramaEntidades.AreaPersonagem" FromRole="Area" ToRole="Personagem" />
+          <NavigationProperty Name="Modelo" Relationship="DiagramaEntidades.ModeloAreaArea" FromRole="Area" ToRole="ModeloArea" />
+          <Property Name="ModeloAreaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ObjetoArea">
+          <End Type="DiagramaEntidades.Objeto" Role="Objeto" Multiplicity="*" />
+          <End Type="DiagramaEntidades.Area" Role="Area" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Objeto">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AreaMonstro">
+          <End Type="DiagramaEntidades.Area" Role="Area" Multiplicity="1" />
+          <End Type="DiagramaEntidades.Monstro" Role="Monstro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Monstro">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AreaPersonagem">
+          <End Type="DiagramaEntidades.Area" Role="Area" Multiplicity="1" />
+          <End Type="DiagramaEntidades.Personagem" Role="Personagem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personagem">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ModeloMonstroMonstro">
+          <End Type="DiagramaEntidades.ModeloMonstro" Role="ModeloMonstro" Multiplicity="1" />
+          <End Type="DiagramaEntidades.Monstro" Role="Monstro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ModeloMonstro">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Monstro">
+              <PropertyRef Name="ModeloMonstroId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MonstroArma">
+          <End Type="DiagramaEntidades.Monstro" Role="Monstro" Multiplicity="*" />
+          <End Type="DiagramaEntidades.Arma" Role="Arma" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Arma">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Monstro">
+              <PropertyRef Name="ArmaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RacaEntidade">
+          <End Type="DiagramaEntidades.Raca" Role="Raca" Multiplicity="1" />
+          <End Type="DiagramaEntidades.Entidade" Role="Entidade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Raca">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Entidade">
+              <PropertyRef Name="RacaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonagemArmaPrincipal">
+          <End Type="DiagramaEntidades.Personagem" Role="Personagem" Multiplicity="*" />
+          <End Type="DiagramaEntidades.Arma" Role="Arma" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Arma">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personagem">
+              <PropertyRef Name="ArmaPrincipalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonagemArma">
+          <End Type="DiagramaEntidades.Personagem" Role="Personagem" Multiplicity="*" />
+          <End Type="DiagramaEntidades.Arma" Role="Arma" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Arma">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personagem">
+              <PropertyRef Name="ArmaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ModeloArea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Descricao" Type="String" Nullable="false" />
+          <NavigationProperty Name="Areas" Relationship="DiagramaEntidades.ModeloAreaArea" FromRole="ModeloArea" ToRole="Area" />
+        </EntityType>
+        <EntityType Name="ModeloArma" BaseType="DiagramaEntidades.ModeloObjeto">
+          <Property Name="Defesa" Type="Int32" Nullable="false" />
+          <Property Name="Ataque" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Armas" Relationship="DiagramaEntidades.ModeloArmaArma" FromRole="ModeloArma" ToRole="Arma" />
+        </EntityType>
+        <EntityType Name="ModeloObjeto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Descricao" Type="String" Nullable="false" />
+          <NavigationProperty Name="Objetos" Relationship="DiagramaEntidades.ModeloObjetoObjeto" FromRole="ModeloObjeto" ToRole="Objeto" />
+        </EntityType>
+        <Association Name="ModeloObjetoObjeto">
+          <End Type="DiagramaEntidades.ModeloObjeto" Role="ModeloObjeto" Multiplicity="1" />
+          <End Type="DiagramaEntidades.Objeto" Role="Objeto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ModeloObjeto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Objeto">
+              <PropertyRef Name="ModeloObjetoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ModeloArmaArma">
+          <End Type="DiagramaEntidades.ModeloArma" Role="ModeloArma" Multiplicity="1" />
+          <End Type="DiagramaEntidades.Arma" Role="Arma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ModeloArma">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Arma">
+              <PropertyRef Name="ModeloArmaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ModeloAreaArea">
+          <End Type="DiagramaEntidades.ModeloArea" Role="ModeloArea" Multiplicity="1" />
+          <End Type="DiagramaEntidades.Area" Role="Area" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ModeloArea">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Area">
+              <PropertyRef Name="ModeloAreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DiagramaEntidadesStoreContainer" CdmEntityContainer="DiagramaEntidadesContainer">
+    <EntitySetMapping Name="Objetos">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagramaEntidades.Objeto)">
+        <MappingFragment StoreEntitySet="Objetos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="ModeloObjetoId" ColumnName="ModeloObjetoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(DiagramaEntidades.Arma)">
+        <MappingFragment StoreEntitySet="Objetos_Arma">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ataque" ColumnName="Ataque" />
+          <ScalarProperty Name="Defesa" ColumnName="Defesa" />
+          <ScalarProperty Name="ModeloArmaId" ColumnName="ModeloArmaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entidades">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagramaEntidades.Entidade)">
+        <MappingFragment StoreEntitySet="Entidades">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Vida" ColumnName="Vida" />
+          <ScalarProperty Name="Mana" ColumnName="Mana" />
+          <ScalarProperty Name="Estamina" ColumnName="Estamina" />
+          <ScalarProperty Name="Moral" ColumnName="Moral" />
+          <ScalarProperty Name="Forca" ColumnName="Forca" />
+          <ScalarProperty Name="Inteligencia" ColumnName="Inteligencia" />
+          <ScalarProperty Name="Destreza" ColumnName="Destreza" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Imagem" ColumnName="Imagem" />
+          <ScalarProperty Name="RacaId" ColumnName="RacaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(DiagramaEntidades.Monstro)">
+        <MappingFragment StoreEntitySet="Entidades_Monstro">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Maldade" ColumnName="Maldade" />
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="ModeloMonstroId" ColumnName="ModeloMonstroId" />
+          <ScalarProperty Name="ArmaId" ColumnName="ArmaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(DiagramaEntidades.Personagem)">
+        <MappingFragment StoreEntitySet="Entidades_Personagem">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Biografia" ColumnName="Biografia" />
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="ArmaPrincipalId" ColumnName="ArmaPrincipalId" />
+          <ScalarProperty Name="ArmaId" ColumnName="ArmaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(DiagramaEntidades.ModeloMonstro)">
+        <MappingFragment StoreEntitySet="Entidades_ModeloMonstro">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Maldade" ColumnName="Maldade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Racas">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagramaEntidades.Raca)">
+        <MappingFragment StoreEntitySet="Racas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Mana" ColumnName="Mana" />
+          <ScalarProperty Name="Estamina" ColumnName="Estamina" />
+          <ScalarProperty Name="Forca" ColumnName="Forca" />
+          <ScalarProperty Name="Inteligencia" ColumnName="Inteligencia" />
+          <ScalarProperty Name="Destreza" ColumnName="Destreza" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Areas">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagramaEntidades.Area)">
+        <MappingFragment StoreEntitySet="Areas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="ModeloAreaId" ColumnName="ModeloAreaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ModelosObjeto">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagramaEntidades.ModeloObjeto)">
+        <MappingFragment StoreEntitySet="ModelosObjeto">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(DiagramaEntidades.ModeloArma)">
+        <MappingFragment StoreEntitySet="ModelosObjeto_ModeloArma">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Defesa" ColumnName="Defesa" />
+          <ScalarProperty Name="Ataque" ColumnName="Ataque" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ModeloAreaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagramaEntidades.ModeloArea)">
+        <MappingFragment StoreEntitySet="ModeloAreaSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

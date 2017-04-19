@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F227C396-5D0F-430F-8351-B3D973851898}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MTADM</RootNamespace>
+    <AssemblyName>MTADM</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Area.cs">
+      <DependentUpon>DiagramaEntidades.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Arma.cs">
+      <DependentUpon>DiagramaEntidades.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DiagramaEntidades.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DiagramaEntidades.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DiagramaEntidades.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DiagramaEntidades.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DiagramaEntidades.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DiagramaEntidades.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entidade.cs">
+      <DependentUpon>DiagramaEntidades.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloArea.cs">
+      <DependentUpon>DiagramaEntidades.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloArma.cs">
+      <DependentUpon>DiagramaEntidades.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloMonstro.cs">
+      <DependentUpon>DiagramaEntidades.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloObjeto.cs">
+      <DependentUpon>DiagramaEntidades.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Monstro.cs">
+      <DependentUpon>DiagramaEntidades.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MTADM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MTADM.Designer.cs">
+      <DependentUpon>MTADM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ArmaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArmaForm.Designer.cs">
+      <DependentUpon>ArmaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objeto.cs">
+      <DependentUpon>DiagramaEntidades.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Personagem.cs">
+      <DependentUpon>DiagramaEntidades.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PersonagemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonagemForm.Designer.cs">
+      <DependentUpon>PersonagemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Raca.cs">
+      <DependentUpon>DiagramaEntidades.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RacaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RacaForm.Designer.cs">
+      <DependentUpon>RacaForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MTADM.resx">
+      <DependentUpon>MTADM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ArmaForm.resx">
+      <DependentUpon>ArmaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonagemForm.resx">
+      <DependentUpon>PersonagemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="RacaForm.resx">
+      <DependentUpon>RacaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="DiagramaEntidades.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DiagramaEntidades.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DiagramaEntidades.edmx.diagram">
+      <DependentUpon>DiagramaEntidades.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DiagramaEntidades.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DiagramaEntidades.Context.cs</LastGenOutput>
+      <DependentUpon>DiagramaEntidades.edmx</DependentUpon>
+    </Content>
+    <Content Include="DiagramaEntidades.edmx.sql" />
+    <Content Include="DiagramaEntidades.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DiagramaEntidades.cs</LastGenOutput>
+      <DependentUpon>DiagramaEntidades.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

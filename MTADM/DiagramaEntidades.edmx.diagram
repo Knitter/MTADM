@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="20c01f0bcb374447aab0eaabde47543f" Name="DiagramaEntidades" >
+        <EntityTypeShape EntityType="DiagramaEntidades.Objeto" Width="1.5" PointX="1.625" PointY="3" />
+        <EntityTypeShape EntityType="DiagramaEntidades.Arma" Width="1.5" PointX="1.625" PointY="6.125" />
+        <InheritanceConnector EntityType="DiagramaEntidades.Arma" />
+        <EntityTypeShape EntityType="DiagramaEntidades.Entidade" Width="1.5" PointX="8.375" PointY="0.625" />
+        <EntityTypeShape EntityType="DiagramaEntidades.Raca" Width="1.5" PointX="5.5" PointY="0.625" />
+        <EntityTypeShape EntityType="DiagramaEntidades.Personagem" Width="1.5" PointX="5.75" PointY="5.125" />
+        <InheritanceConnector EntityType="DiagramaEntidades.Personagem" />
+        <EntityTypeShape EntityType="DiagramaEntidades.ModeloMonstro" Width="1.5" PointX="11.25" PointY="0.625" />
+        <InheritanceConnector EntityType="DiagramaEntidades.ModeloMonstro" />
+        <EntityTypeShape EntityType="DiagramaEntidades.Monstro" Width="1.5" PointX="10" PointY="5.25" />
+        <InheritanceConnector EntityType="DiagramaEntidades.Monstro" />
+        <EntityTypeShape EntityType="DiagramaEntidades.Area" Width="1.5" PointX="3.625" PointY="3.125" />
+        <AssociationConnector Association="DiagramaEntidades.ObjetoArea" />
+        <AssociationConnector Association="DiagramaEntidades.AreaMonstro" />
+        <AssociationConnector Association="DiagramaEntidades.AreaPersonagem" />
+        <AssociationConnector Association="DiagramaEntidades.ModeloMonstroMonstro" />
+        <AssociationConnector Association="DiagramaEntidades.MonstroArma" />
+        <AssociationConnector Association="DiagramaEntidades.RacaEntidade" />
+        <AssociationConnector Association="DiagramaEntidades.PersonagemArmaPrincipal" />
+        <AssociationConnector Association="DiagramaEntidades.PersonagemArma" />
+        <EntityTypeShape EntityType="DiagramaEntidades.ModeloArea" Width="1.5" PointX="2.875" PointY="0.5" />
+        <EntityTypeShape EntityType="DiagramaEntidades.ModeloArma" Width="1.5" PointX="0.5" PointY="9.125" />
+        <EntityTypeShape EntityType="DiagramaEntidades.ModeloObjeto" Width="1.5" PointX="0.5" PointY="0.5" />
+        <AssociationConnector Association="DiagramaEntidades.ModeloObjetoObjeto" />
+        <InheritanceConnector EntityType="DiagramaEntidades.ModeloArma" />
+        <AssociationConnector Association="DiagramaEntidades.ModeloArmaArma" />
+        <AssociationConnector Association="DiagramaEntidades.ModeloAreaArea" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
