@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Linq;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -22,12 +23,12 @@ namespace MTADM {
         }
 
         private void EventoAdicionarPersonagem(object sender, EventArgs e) {
-            //PersonagemForm form = new PersonagemForm(this);
-            //DialogResult resultado = form.ShowDialog();
+            PersonagemForm form = new PersonagemForm(this);
+            DialogResult resultado = form.ShowDialog();
 
-            //if (resultado == DialogResult.OK) {
-            //    AdicionarPersonagem(form.NovaPersonagem);
-            //}
+            if (resultado == DialogResult.OK) {
+                AdicionarPersonagem(form.NovaPersonagem);
+            }
         }
 
         private void EventoAdicionarRaca(object sender, EventArgs e) {
@@ -62,6 +63,21 @@ namespace MTADM {
         }
 
         private void AdicionarPersonagem(Personagem personagem) {
+            container.Entidades.Add(personagem);
+            container.SaveChanges();
+
+            //lbxPersonagens.Items.Clear();
+
+            List<Personagem> prs = container.Entidades
+                .OfType<Personagem>()
+                .ToList<Personagem>();
+
+            List<Personagem> vivas = (        
+                from p in prs
+                where p.Vida > 0
+                select p
+                ).ToList<Personagem>();            
+
             //personagens.Add(personagem.Nome, personagem);
             //refreshListaPersonagens();
         }
